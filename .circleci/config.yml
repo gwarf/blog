@@ -40,5 +40,5 @@ jobs:
           name: Push the generated files back to GitHub pages
           working_directory: ~/public
           command: |
-            git push -vvv --force https://gwarf:${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io.git master
+            git push -vvv --force "https://gwarf:${GITHUB_TOKEN}@github.com/gwarf/gwarf.github.io.git" master
             echo "Success"
