@@ -27,14 +27,29 @@ jobs:
       - run: mdl -s relaxed -s .mdl-style.rb -r ~MD002,~MD024 content/
       # build with Hugo
       - run: HUGO_ENV=production hugo -v -d ~/public
+      # Commit changes to a new local repository
+      - run:
+          name: Deploy to GitHub pages
+          working_directory: ~/public
+          command: |
+            echo 'blog.bapt.name' > CNAME
+            git config --global user.email "baptiste@bapt.name"
+            git config --global user.name "CircleCI Bot"
+            git init . && git add --all
+            git commit -m "Automated publish to gh-pages [ci skip]"
+      # Add remote repostory
+      - run:
+          name: Deploy to GitHub pages
+          working_directory: ~/public
+          command: git remote add gh "https://${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io"
       # Push the generated files back to github
       - run:
           name: Deploy to GitHub pages
           working_directory: ~/public
           command: |
-            git config --global user.email "baptiste@bapt.name"
-            git config --global user.name "CircleCI Bot"
-            git init . && git add --all
-            git commit -m "Automated publish to gh-pages [ci skip]"
-            git remote add gh "https://${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io"
+            pwd
+            ls
+            git status
+            git br -vvv
+            git remote -vvv
             git push --force gh master
