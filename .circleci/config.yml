@@ -6,7 +6,7 @@ workflows:
   build:
     jobs:
       - build:
-        context: blog
+          context: blog
 
 jobs:
   build:
@@ -18,7 +18,7 @@ jobs:
     steps:
       # Install markdown linter
       # https://github.com/markdownlint/markdownlint
-      - gem install mdl
+      - run: gem install mdl
       # Checkout the repository
       - checkout
       # install git submodules for managing third-party dependencies
@@ -26,7 +26,7 @@ jobs:
       # Lint markdown
       # MD002: first level header is managed by hugo theme
       # MD024: several sections repeat the header name, may be reviewed later
-      - mdl -s relaxed -s style.rb -r ~MD002,~MD024 content/
+      - run: mdl -s relaxed -s style.rb -r ~MD002,~MD024 content/
       # build with Hugo
       - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
       # Set some variables to add to the commit message
