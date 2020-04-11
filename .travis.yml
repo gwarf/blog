@@ -22,7 +22,7 @@ deploy:
   # Keep generated files before uploading, required
   cleanup: false
   # Be verbose for debugging
-  vebose: true
+  verbose: true
   # Set in the settings page of the repository, as a secure variable
   github_token: $GITHUB_TOKEN
   # Source directory
