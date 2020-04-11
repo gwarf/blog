@@ -6,7 +6,7 @@ workflows:
   build:
     jobs:
       - build:
-          context: blog
+          context: deploy
 
 jobs:
   build:
