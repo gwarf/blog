@@ -1,0 +1,37 @@
+---
+os: linux
+dist: xenial
+language: ruby
+git:
+  submodules: true
+install:
+  - gem install mdl
+script:
+  # Markdown linting
+  # https://github.com/markdownlint/markdownlint
+  # MD002: first level header is managed by hugo theme
+  # MD024: several sections repeat the header name, may be reviewed later
+  - mdl -s relaxed -s style.rb -r ~MD002,~MD024 content/
+  # building static content with hugo
+  - ./binaries/linux64/hugo
+deploy:
+  # https://docs.travis-ci.com/user/deployment/pages/
+  provider: pages
+  # Keep generated files before uploading, required
+  skip_cleanup: true
+  # Be verbose for debugging
+  vebose: true
+  # Set in the settings page of the repository, as a secure variable
+  github_token: $GITHUB_TOKEN
+  # Commit with identity of GITHUB_TOKEN
+  commiter_from_gh: true
+  # Source directory
+  local_dir: public
+  # Target repository
+  repo: gwarf/gwarf.github.io
+  # Target branch
+  target_branch: master
+  # Custom FQDN for GitHub pages
+  fqdn: blog.bapt.name
+  on:
+    branch: master
