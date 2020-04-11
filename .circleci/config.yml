@@ -34,9 +34,7 @@ jobs:
           command: |
             git config --global user.email "baptiste@bapt.name"
             git config --global user.name "CircleCI Bot"
-            git init .
-            git add --all
+            git init . && git add --all
             git commit -m "Automated publish to gh-pages [ci skip]"
-            env
             git remote add gh "https://${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io"
             git push --force gh master
