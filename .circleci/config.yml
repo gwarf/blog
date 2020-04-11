@@ -33,8 +33,8 @@ jobs:
       - run: git config --global user.email "baptiste@bapt.name" && git config --global user.name "CircleCI Bot"
       # Push the generated files back to github
       - run:
-          working_directory: ~/hugo/public
           command: |
             git add --all
             git commit -m "Automated publish to gh-pages [ci skip]"
-      - run: git subtree push -q --prefix public https://${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io master
+            git remote set-url gh https://gwarf:${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io
+            git subtree push -q --prefix public/ gh master
