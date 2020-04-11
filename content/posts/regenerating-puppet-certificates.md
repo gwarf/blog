@@ -1,5 +1,5 @@
 +++
-title = "regenerating puppet certificates"
+title = "Regenerating Puppet certificates"
 date = "2014-04-10"
 slug = "2014/04/10/regenerating-puppet-certificates"
 Categories = []
