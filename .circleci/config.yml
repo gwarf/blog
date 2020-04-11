@@ -1,0 +1,33 @@
+# https://circleci.com/docs/2.0/configuration-reference
+version: 2.1
+workflows:
+  build:
+    jobs:
+      - build
+        context: blog
+jobs:
+  build:
+    docker:
+      - image: cibuilds/hugo:latest
+    working_directory: ~/hugo
+    environment:
+      HUGO_BUILD_DIR: ~/hugo/public
+    steps:
+      # Install markdown linter
+      # https://github.com/markdownlint/markdownlint
+      - gem install mdl
+      # Checkout the repository
+      - checkout
+      # install git submodules for managing third-party dependencies
+      - run: git submodule sync && git submodule update --init
+      # Lint markdown
+      # MD002: first level header is managed by hugo theme
+      # MD024: several sections repeat the header name, may be reviewed later
+      - mdl -s relaxed -s style.rb -r ~MD002,~MD024 content/
+      # build with Hugo
+      - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
+      # Set some variables to add to the commit message
+      - run: git config --global user.email "baptiste@bapt.name" && git config --global user.name "CircleCI Bot"
+      # Push the generated files back to github
+      - run: cd $HUGO_BUILD_DIR && git add --all && git commit -m "Automated publish to gh-pages [ci skip]"
+      - run: git push -q https://${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io master
