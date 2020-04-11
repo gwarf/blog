@@ -23,14 +23,16 @@ deploy:
   cleanup: false
   # Be verbose for debugging
   verbose: true
-  # Set in the settings page of the repository, as a secure variable
-  github_token: $GITHUB_TOKEN
   # Source directory
   local_dir: public
+  # Strategy
+  strategy = git
   # Target repository
   repo: gwarf/gwarf.github.io
   # Target branch
   target_branch: master
+  # Set in the settings page of the repository, as a secure variable
+  token: $GITHUB_TOKEN
   # Custom FQDN for GitHub pages
   fqdn: blog.bapt.name
   on:
