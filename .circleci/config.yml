@@ -47,9 +47,7 @@ jobs:
           name: Deploy to GitHub pages
           working_directory: ~/public
           command: |
-            pwd
-            ls
-            git status
-            git br -vvv
+            git branch -vvv
             git remote -vvv
-            git push --force gh master
+            git push -vvv --force gh master
+            echo "Success"
