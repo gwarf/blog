@@ -1,10 +1,12 @@
 # https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
+
 workflows:
   build:
     jobs:
       - build
-        context: blog
+          context: blog
+
 jobs:
   build:
     docker:
