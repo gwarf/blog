@@ -17,14 +17,14 @@ script:
 deploy:
   # https://docs.travis-ci.com/user/deployment/pages/
   provider: pages
+  # Use dpl v2
+  edge: true
   # Keep generated files before uploading, required
-  skip_cleanup: true
+  cleanup: false
   # Be verbose for debugging
   vebose: true
   # Set in the settings page of the repository, as a secure variable
   github_token: $GITHUB_TOKEN
-  # Commit with identity of GITHUB_TOKEN
-  commiter_from_gh: true
   # Source directory
   local_dir: public
   # Target repository
