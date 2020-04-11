@@ -38,5 +38,5 @@ jobs:
             git add --all
             git commit -m "Automated publish to gh-pages [ci skip]"
             env
-            git remote add gh "https://gwarf:${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io"
+            git remote add gh "https://${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io"
             git push --force gh master
