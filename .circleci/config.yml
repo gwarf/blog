@@ -37,12 +37,8 @@ jobs:
             git init . && git add --all
             git commit -m "Automated publish to gh-pages [ci skip]"
       - run:
-          name: Add remote repostory
-          working_directory: ~/public
-          command: git remote add gh "https://gwarf:${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io"
-      - run:
           name: Push the generated files back to GitHub pages
           working_directory: ~/public
           command: |
-            git push -vvv --force gh master
+            git push -vvv --force https://gwarf:${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io.git master
             echo "Success"
