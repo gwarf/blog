@@ -32,5 +32,11 @@ jobs:
       # Set some variables to add to the commit message
       - run: git config --global user.email "baptiste@bapt.name" && git config --global user.name "CircleCI Bot"
       # Push the generated files back to github
-      - run: cd $HUGO_BUILD_DIR && git add --all && git commit -m "Automated publish to gh-pages [ci skip]"
-      - run: git push -q https://${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io master
+      - run:
+          working_directory: ~/hugo/public
+          command: |
+            git add --all
+            git commit -m "Automated publish to gh-pages [ci skip]"
+      - run:
+          working_directory: ~/hugo/public
+          command: git subtree push -q https://${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io master --force
