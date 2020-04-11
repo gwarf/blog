@@ -13,8 +13,6 @@ jobs:
     docker:
       - image: cibuilds/hugo:latest
     working_directory: ~/hugo
-    environment:
-      HUGO_BUILD_DIR: ~/public
     steps:
       # Install markdown linter
       # https://github.com/markdownlint/markdownlint
@@ -28,12 +26,13 @@ jobs:
       # MD024: several sections repeat the header name, may be reviewed later
       - run: mdl -s relaxed -s .mdl-style.rb -r ~MD002,~MD024 content/
       # build with Hugo
-      - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
+      - run: HUGO_ENV=production hugo -v -d ~/public
       # Set some variables to add to the commit message
       - run: git config --global user.email "baptiste@bapt.name" && git config --global user.name "CircleCI Bot"
       # Push the generated files back to github
       - run:
-          working_directory: $HUGO_BUILD_DIR
+          name: Deploy to GitHub pages
+          working_directory: ~/public
           command: |
             git init .
             git add --all
