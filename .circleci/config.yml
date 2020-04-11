@@ -27,15 +27,16 @@ jobs:
       - run: mdl -s relaxed -s .mdl-style.rb -r ~MD002,~MD024 content/
       # build with Hugo
       - run: HUGO_ENV=production hugo -v -d ~/public
-      # Set some variables to add to the commit message
-      - run: git config --global user.email "baptiste@bapt.name" && git config --global user.name "CircleCI Bot"
       # Push the generated files back to github
       - run:
           name: Deploy to GitHub pages
           working_directory: ~/public
           command: |
+            git config --global user.email "baptiste@bapt.name"
+            git config --global user.name "CircleCI Bot"
             git init .
             git add --all
             git commit -m "Automated publish to gh-pages [ci skip]"
-            git remote add gh https://gwarf:${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io
+            env
+            git remote add gh "https://gwarf:${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io"
             git push --force gh master
