@@ -18,7 +18,7 @@ jobs:
     steps:
       # Install markdown linter
       # https://github.com/markdownlint/markdownlint
-      - run: gem install mdl
+      - run: sudo gem install mdl
       # Checkout the repository
       - checkout
       # install git submodules for managing third-party dependencies
