@@ -39,7 +39,7 @@ jobs:
       - run:
           name: Add remote repostory
           working_directory: ~/public
-          command: git remote add gh https://${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io
+          command: git remote add gh https://gwarf:${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io
       - run:
           name: Push the generated files back to GitHub pages
           working_directory: ~/public
