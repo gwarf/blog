@@ -31,7 +31,7 @@ xen host (another VM could have been used too), here are the steps:
 - unplug and destroy the VBD
 - Restart the VM
 
-### Hands-on...
+### Hands-on
 
 From the xenserver shell:
 

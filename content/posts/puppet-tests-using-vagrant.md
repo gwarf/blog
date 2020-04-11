@@ -1,5 +1,5 @@
 +++
-title = "puppet tests using vagrant"
+title = "Puppet tests using vagrant"
 date = "2013-12-10"
 slug = "2013/12/10/puppet-tests-using-vagrant"
 Categories = []
@@ -122,15 +122,14 @@ bootstrap:
 * A local copy of the remote puppet modules managed using the Puppetfile
   is made using r10k (using a symbolicaly linked Puppetfile)
 
-``` sh
+```sh
 gem install r10k
 r10k -v INFO puppetfile install
 ```
 
-``` ruby Vagrantfile
+```ruby Vagrantfile
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
 VAGRANTFILE_API_VERSION = "2"
 
@@ -197,7 +196,7 @@ by Vagrant.
 ## Go play!
 
 The boxes are started using
-``` sh
+```sh
 vagrant up
 ```
 

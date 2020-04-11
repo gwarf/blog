@@ -1,2 +1,2 @@
-# Allow ? in the headers, for FAQ
-rule 'MD026', :punctuation => '.,:;!'
+# Allow ? and ! in the headers
+rule 'MD026', :punctuation => '.,:;'

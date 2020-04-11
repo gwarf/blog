@@ -44,7 +44,6 @@ will be used.
   - "%{::operatingsystem}"
   - "%{::osfamily}"
   - common
-
 # vim: set ft=yaml et smarttab sw=2 ts=2 sts=2:
 ```
 
@@ -80,7 +79,6 @@ if File.exist?('/etc/company.conf')
     end
   end
 end
-
 # vim: set expandtab smarttab shiftwidth=2 tabstop=2 softtabstop=2 nocindent noautoindent:
 ```
 
