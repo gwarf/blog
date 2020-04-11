@@ -37,6 +37,4 @@ jobs:
           command: |
             git add --all
             git commit -m "Automated publish to gh-pages [ci skip]"
-      - run:
-          working_directory: ~/hugo/public
-          command: git subtree push -q https://${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io master
+      - run: git subtree push -q public https://${GITHUB_PERSONAL_TOKEN}@github.com/gwarf/gwarf.github.io master
