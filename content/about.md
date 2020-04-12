@@ -12,7 +12,7 @@ Comments are not possible, but feel free to reach me on various networks:
 
 - [Keybase](https://keybase.io/gwarf)
 - [Mastodon](https://framapiaf.org/@gwarf)
-- [Twitter](https://twitter.com/gwarf)
+- [Twitter](https://twitter.com/baptgrenier)
 - [GitHub](https://github.com/gwarf)
 - [Linked-in](https://linkedin.com/in/baptistegrenier)
 
@@ -22,5 +22,7 @@ contribute on [GitHub](https://github.com/gohugoio).
 
 It makes use of a variety of open source projects including:
 
-- https://github.com/gohugoio
-- https://github.com/Track3/hermit
+- Static blog engine: https://github.com/gohugo
+- Hugo theme: https://github.com/Track3/hermit
+- Automatic building and deploying: https://circleci.com/
+- Hosting: https://pages.github.com/
