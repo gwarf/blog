@@ -68,6 +68,9 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
     name = "linkedin"
     url = "https://linkedin.com/in/baptistegrenier"
 
+[permalinks]
+  posts = "/:year/:month/:day/:title/"
+
 [menu]
 
   [[menu.main]]
