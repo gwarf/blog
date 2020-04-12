@@ -1,0 +1,9 @@
+" Project-specific vim configuration
+" https://github.com/embear/vim-localvimrc
+
+" mdl should pre-defined configuration
+let b:ale_linters = {
+\   'markdown': ['mdl --ignore-front-matter --style .mdl-style.rb'],
+\}
+
+" vim:set ft=vim et sw=2:
