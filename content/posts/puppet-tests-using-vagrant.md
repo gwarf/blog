@@ -1,8 +1,8 @@
 ---
-title = "Puppet tests using Vagrant"
-date = "2013-12-10"
-slug = "2013/12/10/puppet-tests-using-vagrant"
-tags =
+title: "Puppet tests using Vagrant"
+date: "2013-12-10"
+slug: "2013/12/10/puppet-tests-using-vagrant"
+tags:
   - puppet
   - vagrant
 ---

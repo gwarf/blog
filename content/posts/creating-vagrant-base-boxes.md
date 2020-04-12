@@ -1,7 +1,7 @@
 ---
-title = "Creating vagrant base boxes"
-date = "2014-01-17"
-slug = "2014/01/17/creating-vagrant-base-boxes"
+title: "Creating Vagrant base boxes"
+date: "2014-01-17"
+slug: "2014/01/17/creating-vagrant-base-boxes"
 tags:
   - vagrant
 ---

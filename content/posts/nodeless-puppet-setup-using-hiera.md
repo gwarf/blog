@@ -1,7 +1,7 @@
 ---
-title = "Nodeless puppet setup using Hiera"
-date = "2013-12-11"
-slug = "2013/12/11/nodeless-puppet-setup-using-hiera"
+title: "Node-less puppet setup using Hiera"
+date: "2013-12-11"
+slug: "2013/12/11/node-less-puppet-setup-using-hiera"
 tags:
   - puppet
 ---

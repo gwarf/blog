@@ -1,8 +1,8 @@
 ---
-title = "XenServer installation using HTTP source"
-date = "2014-04-18"
-slug = "2014/04/18/xenserver-installation-using-http-source"
-tags =
+title: "XenServer installation using HTTP source"
+date: "2014-04-18"
+slug: "2014/04/18/xenserver-installation-using-http-source"
+tags:
    - xen
 ---
 

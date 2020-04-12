@@ -1,8 +1,9 @@
 ---
-title = "checking se and lfc consistency"
-date = "2014-02-11"
-slug = "2014/02/11/checking-se-and-lfc-consistency"
-Categories = []
+title: "checking se and lfc consistency"
+date: "2014-02-11"
+slug: "2014/02/11/checking-se-and-lfc-consistency"
+tags:
+  - grid
 ---
 
 ## Dealing with inconsistency between the LFC and DPM

@@ -1,8 +1,8 @@
 ---
-title = "Starting to play with Puppet Enterprise"
-date = "2014-02-14"
-slug = "2014/02/14/starting-to-play-with-puppet-enterprise"
-tags =
+title: "Starting to play with Puppet Enterprise"
+date: "2014-02-14"
+slug: "2014/02/14/starting-to-play-with-puppet-enterprise"
+tags:
   - puppet
 ---
 

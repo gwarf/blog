@@ -1,8 +1,8 @@
 ---
-title = "Rebuilding a package using ABS"
-date = "2014-07-29"
-slug = "2014/07/29/rebuilding-a-package-using-abs"
-tags =
+title: "Rebuilding a package using ABS"
+date: "2014-07-29"
+slug: "2014/07/29/rebuilding-a-package-using-abs"
+tags:
   - arch
 ---
 

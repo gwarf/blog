@@ -1,8 +1,10 @@
 ---
-title = "mail server migration"
-date = "2014-01-18"
-slug = "2014/01/18/mail-server-migration"
-Categories = []
+title: "Mail server migration"
+date: "2014-01-18"
+slug: "2014/01/18/mail-server-migration"
+tags:
+  - mail
+  - syadmin
 ---
 
 ## Goal

@@ -1,8 +1,8 @@
 ---
-title = "Resizing a VM filesystem from Xen host"
-date = "2014-02-26"
-slug = "2014/02/26/resizing-a-vm-filesystem-from-xen-host"
-tags =
+title: "Resizing a VM filesystem from Xen host"
+date: "2014-02-26"
+slug: "2014/02/26/resizing-a-vm-filesystem-from-xen-host"
+tags:
   - xen
   - vm
 ---

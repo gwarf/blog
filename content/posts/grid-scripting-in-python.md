@@ -1,9 +1,10 @@
 ---
-title = "grid scripting in python"
-date = "2014-07-28"
-slug = "2014/07/28/grid-scripting-in-python"
-tags =
+title: "Grid scripting in python"
+date: "2014-07-28"
+slug: "2014/07/28/grid-scripting-in-python"
+tags:
   - grid
+  - scripting
 ---
 
 # Scripting Grid management using LCG and LFC python APIs
