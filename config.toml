@@ -9,7 +9,7 @@ pygmentsCodefences  = true
 pygmentsUseClasses  = true
 # hasCJKLanguage = true  # If Chinese/Japanese/Korean is your main content language, enable this to make wordCount works right.
 rssLimit = 10  # Maximum number of items in the RSS feed.
-copyright = "This work is licensed under Licence IV." # This message is only used by the RSS template.
+copyright = "This work is licensed under WTFPL." # This message is only used by the RSS template.
 enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/functions/emojify/
 # googleAnalytics = "UA-123-45"
 # disqusShortname = "yourdiscussshortname"
@@ -37,7 +37,7 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
   # images = [""]
   themeColor = "#494f5c"
 
-  homeSubtitle = "Not much."
+  homeSubtitle = "brain.dump(/dev/urandom + 'mostly technical bits.')"
   footerCopyright = ' &#183; <a href="https://http://www.wtfpl.net/" target="_blank" rel="noopener">WTFPL</a>'
   # bgImg = ""  # Homepage background-image URL
 
