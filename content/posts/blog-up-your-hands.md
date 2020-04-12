@@ -1,5 +1,5 @@
 +++
-title = "blog up your hands"
+title = "Blog up your hands"
 date = "2013-10-14"
 slug = "2013/10/14/blog-up-your-hands"
 Categories = []
