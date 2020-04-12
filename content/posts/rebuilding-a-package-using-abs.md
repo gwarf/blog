@@ -1,15 +1,17 @@
-+++
-title = "rebuilding a package using abs"
+---
+title = "Rebuilding a package using ABS"
 date = "2014-07-29"
 slug = "2014/07/29/rebuilding-a-package-using-abs"
-Categories = []
-+++
+tags =
+  - arch
+---
+
 # Rebuilding an Archlinux package using Arch Build System (ABS)
 
 Rebuilding a system package on Archlinux as a user is really simple using
-[ABS](https://wiki.archlinux.org/index.php/Arch_Build_System)
+[ABS](https://wiki.archlinux.org/index.php/Arch_Build_System).
 
-``` sh
+```sh
 yaourt -S abs
 cp /etc/abs.conf ~/.abs.conf
 sed -i 's#.*ABSROOT.*#ABSROOT="\$HOME/abs"#' ~/.abs.conf

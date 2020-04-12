@@ -1,61 +1,69 @@
-+++
-title = "Puppet tests using vagrant"
+---
+title = "Puppet tests using Vagrant"
 date = "2013-12-10"
 slug = "2013/12/10/puppet-tests-using-vagrant"
-Categories = []
-+++
+tags =
+  - puppet
+  - vagrant
+---
 
 XXX Work in progress.
 
 ## Intro
+
 Read first
 
-* http://www.example42.com/?q=Example42%20Puppet%20Playground
-* http://grahamgilbert.com/blog/2013/02/13/building-a-test-puppet-master-with-vagrant/
-* http://theholyjava.wordpress.com/2013/09/03/test-puppet-config-of-an-existing-node-using-puppet-master-inside-vagrant/
-* http://journal.ryanmccue.info/209/vagrant-puppet-master-pt-1/
-* http://journal.ryanmccue.info/209/vagrant-puppet-master-pt-1/
-* http://brokenhaze.com/blog/2013/07/25/puppet-workflow-with-vagrant/
-* http://stackoverflow.com/questions/14168588/vagrant-running-a-puppet-master-with-a-puppet-agent
-* http://java.dzone.com/articles/test-puppet-config-existing
-* https://github.com/garethr/puppetmaster-vagrant
+- http://www.example42.com/?q=Example42%20Puppet%20Playground
+- http://grahamgilbert.com/blog/2013/02/13/building-a-test-puppet-master-with-vagrant/
+- http://theholyjava.wordpress.com/2013/09/03/test-puppet-config-of-an-existing-node-using-puppet-master-inside-vagrant/
+- http://journal.ryanmccue.info/209/vagrant-puppet-master-pt-1/
+- http://journal.ryanmccue.info/209/vagrant-puppet-master-pt-1/
+- http://brokenhaze.com/blog/2013/07/25/puppet-workflow-with-vagrant/
+- http://stackoverflow.com/questions/14168588/vagrant-running-a-puppet-master-with-a-puppet-agent
+- http://java.dzone.com/articles/test-puppet-config-existing
+- https://github.com/garethr/puppetmaster-vagrant
 
 ## Prerequisites
-* [git](http://git-scm.com/)
-* [VirtualBox](https://www.virtualbox.org/)
-* [Vagrant](http://www.vagrantup.com/)
 
-``` sh Yaourting VirtualBox, git and Vagrant on Archlinux
+- [git](http://git-scm.com/)
+- [VirtualBox](https://www.virtualbox.org/)
+- [Vagrant](http://www.vagrantup.com/)
+
+```sh Yaourting VirtualBox, git and Vagrant on Archlinux
 yaourt -S git
 yaourt -S virtualbox virtualbox-guest-iso
 yaourt -S vagrant
 ```
 
 ## VMs list
-* One puppet master running Debian 7 64bits
-* One puppet client running Debian 7 64bits
-* One puppet client running Scientific Linux 5.x 64 bits
-* One puppet client running Scientific Linux 6.x 64 bits
-* One puppet client running CentOS 6.x 64 bits
+
+- One puppet master running Debian 7 64bits
+- One puppet client running Debian 7 64bits
+- One puppet client running Scientific Linux 5.x 64 bits
+- One puppet client running Scientific Linux 6.x 64 bits
+- One puppet client running CentOS 6.x 64 bits
 
 ## Planned workflow
 
 ## Boxes URLs
 
 ### Boxes repositories
-* http://puppet-vagrant-boxes.puppetlabs.com/
-* http://www.vagrantbox.es/
+
+- http://puppet-vagrant-boxes.puppetlabs.com/
+- http://www.vagrantbox.es/
 
 ### Boxes list
-* Debian 7 64 bits - http://puppet-vagrant-boxes.puppetlabs.com/debian-70rc1-x64-vbox4210-nocm.box
-* Scientific Linux 5.x 64 bits -
-* Scientific Linux 6.x 64 bits -  http://lyte.id.au/vagrant/sl6-64-lyte.box
-* CentOS 6.x 64 bits - http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box
+
+- Debian 7 64 bits - http://puppet-vagrant-boxes.puppetlabs.com/debian-70rc1-x64-vbox4210-nocm.box
+- Scientific Linux 5.x 64 bits -
+- Scientific Linux 6.x 64 bits -  http://lyte.id.au/vagrant/sl6-64-lyte.box
+- CentOS 6.x 64 bits - http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box
 
 ## Box installation
+
 Box installation will take some time as the boxes have to be downloaded locally.
 
-```
+```sh
 vagrant box add debian7-64 http://puppet-vagrant-boxes.puppetlabs.com/debian-70rc1-x64-vbox4210-nocm.box
 vagrant box add sl6-64 http://lyte.id.au/vagrant/sl6-64-lyte.box
 vagrant box add centos6-64 http://puppet-vagrant-boxes.puppetlabs.com/centos-64-x64-vbox4210-nocm.box
@@ -65,7 +73,9 @@ vagrant box add centos6-64 http://puppet-vagrant-boxes.puppetlabs.com/centos-64-
 
 Puppet will be boostraped using a small shell script
 
-``` sh shell/base.sh
+`shell/base.sh`:
+
+```sh
 #!/bin/sh
 
 if [ $(id -u) -ne 0 ]; then
@@ -98,8 +108,11 @@ aptitude -y install puppet
 echo 'Puppet successfully installed'
 ```
 
-Then nitial role will be set using another shell script
-``` sh shell/role.sh
+Then initial role will be set using another shell script
+
+`shell/role.sh`:
+
+```sh
 #!/bin/sh
 
 if [ $(hostname) = 'puppet' ]; then
@@ -117,9 +130,10 @@ puppet agent provider.
 Two directories from the host are made available to the guest, they
 contain the puppet modules that will be used for the puppetmaster
 bootstrap:
-* Local puppet modules are available in the relatvie ../../dist
+
+- Local puppet modules are available in the relatvie ../../dist
   directory
-* A local copy of the remote puppet modules managed using the Puppetfile
+- A local copy of the remote puppet modules managed using the Puppetfile
   is made using r10k (using a symbolicaly linked Puppetfile)
 
 ```sh
@@ -127,7 +141,9 @@ gem install r10k
 r10k -v INFO puppetfile install
 ```
 
-```ruby Vagrantfile
+`Vagrantfile`:
+
+```ruby
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 # Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
@@ -196,18 +212,21 @@ by Vagrant.
 ## Go play!
 
 The boxes are started using
+
 ```sh
 vagrant up
 ```
 
-* Connect using ssh
+- Connect using ssh
 
-```
+```sh
 vagrant ssh master
 vagrant ssh client
 ```
 
 ## Later
+
 ### Creating custom boxes using veewee
+
 - https://github.com/jedi4ever/veewee
 - https://github.com/puppetlabs/puppet-vagrant-boxes

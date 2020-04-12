@@ -1,9 +1,10 @@
-+++
-title = "xenserver installation using http source"
+---
+title = "XenServer installation using HTTP source"
 date = "2014-04-18"
 slug = "2014/04/18/xenserver-installation-using-http-source"
-Categories = []
-+++
+tags =
+   - xen
+---
 
 Small notes on installing XenServer using a remote installation source.
 See
@@ -29,7 +30,7 @@ sudo cp -r xenserver-6.0.0_iso/* /srv/mirror/xen/xenserver/6.0.0/
 
 Simple alias example for apache:
 
-```
+```apache
 Alias /xen /srv/mirror/xen
 <Directory /srv/mirror/xen>
    Options Indexes FollowSymLinks
@@ -40,10 +41,10 @@ Alias /xen /srv/mirror/xen
 </Directory>
 ```
 
-Installation files will be available at ```http://server.domain.tld/xen/xenserver/6.0.0/```.
+Installation files will be available at http://server.domain.tld/xen/xenserver/6.0.0/.
 
 ## Installing XenServer
 
-* Boot installation ISO on server
-* Configure network
-* Configure XenServer installer to retrieve files of http/ftp source
+- Boot installation ISO on server
+- Configure network
+- Configure XenServer installer to retrieve files of http/ftp source

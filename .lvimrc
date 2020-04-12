@@ -1,9 +1,11 @@
 " Project-specific vim configuration
 " https://github.com/embear/vim-localvimrc
 
+" Use mdl as a linter for mardkown
+" https://github.com/markdownlint/markdownlint
+let b:ale_linters = { 'markdown': ['mdl'] }
 " mdl should pre-defined configuration
-let b:ale_linters = {
-\   'markdown': ['mdl --ignore-front-matter --style .mdl-style.rb'],
-\}
+let b:ale_markdown_mdl_executable = 'mdl'
+let b:ale_markdown_mdl_options = '--ignore-front-matter --style '.g:localvimrc_script_dir.'/.mdl-style.rb'
 
 " vim:set ft=vim et sw=2:

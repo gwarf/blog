@@ -1,9 +1,11 @@
-+++
+---
 title = "Nodeless puppet setup using Hiera"
 date = "2013-12-11"
 slug = "2013/12/11/nodeless-puppet-setup-using-hiera"
-Categories = []
-+++
+tags:
+  - puppet
+---
+
 ## Why?
 
 Following a big puppet 2.7 => 3.3 space jump (it took quite some times
@@ -15,9 +17,10 @@ to avoid slapping my lazyness with a truit.
 So I crawled a bit the web, and read a lot of different
 posts/bugs/idas/rants, and did not find the golden-wonderfull-definitive
 set-up guide, so here are the things that are on the way:
-* Use hiera for storing the nodes configuration
-* Assign classes using hiera (node-less setup?)
-* Create roles and profiles modules to allow to encapsulate contents not
+
+- Use hiera for storing the nodes configuration
+- Assign classes using hiera (node-less setup?)
+- Create roles and profiles modules to allow to encapsulate contents not
   configurable using hiera
 
 ## How?
@@ -59,12 +62,16 @@ added (company_role and company_location), based on the content of a
 file  (/etc/company.conf) that have to be available on the server. (see
 XXX for more)
 
-``` sh /etc/company.conf
+`/etc/company.conf`:
+
+```sh
 role=puppet
 location=ki
 ```
 
-``` ruby dist/site/lib/facter/gnbila-facts.rb
+`dist/site/lib/facter/gnbila-facts.rb`:
+
+```ruby
 require 'facter'
 
 if File.exist?('/etc/company.conf')
@@ -117,6 +124,7 @@ hiera_include('classes')
 
 Defines parameters are stored in a hash, the key is the resource
 title and the value is a hash of define parameters.
+
 ``` json hieradata/common.json
   "rsyslog_configs" : {
     "iptables.conf" : {
@@ -132,7 +140,10 @@ title and the value is a hash of define parameters.
 
 Defines have to be instanciated calling create_resource with the
 retrieved define configuration hash.
-``` ruby manifests.y/site.pp
+
+`manifests.y/site.pp`:
+
+```ruby
 node default {
   # Load classes from hiera conf merging all classes for inclusion
   hiera_include('classes')

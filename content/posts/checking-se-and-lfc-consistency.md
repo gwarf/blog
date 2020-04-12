@@ -1,12 +1,14 @@
-+++
+---
 title = "checking se and lfc consistency"
 date = "2014-02-11"
 slug = "2014/02/11/checking-se-and-lfc-consistency"
 Categories = []
-+++
+---
+
 ## Dealing with inconsistency between the LFC and DPM
-The biomed VO team made accesible some useful tools to enforce
-consistency of Storage Elements (SE) and Logical File CAtalog (LFC)
+
+The biomed VO team made accessible some useful tools to enforce
+consistency of Storage Elements (SE) and Logical File Catalog (LFC)
 available on [github](https://github.com/frmichel/biomed-support-tools).
 
 In the [neugrid4you project](https://neugrid4you.eu) we have a lot of
@@ -51,6 +53,7 @@ Ghost entries are entries in the LFC that have no corresponding files on
 the SE.
 
 ## Cleaning ghost entries
+
 There is no automatic way of cleaning ghost entries, and in order to
 retrieve the corresponding LFN it is required to directly access the LFC
 database.
@@ -63,7 +66,9 @@ SELECT Cns_file_metadata.fileid,guid,name
   WHERE sfn='srm: //<dpm_server_name>:8446/dpm/<dpm_domain_name>/home/<vo_name>/generated/2014-02-10/file-121aa7e8-a9ec-4401-84f1-24341a74433c';
 ```
 
-``` sh Script for retrieving the guid of a sfn
+`Script for retrieving the guid of a sfn`:
+
+```sh
 #!/bin/sh
 
 set -e

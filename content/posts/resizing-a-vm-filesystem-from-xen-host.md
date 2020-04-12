@@ -1,9 +1,12 @@
-+++
-title = "resizing a vm filesystem from xen host"
+---
+title = "Resizing a VM filesystem from Xen host"
 date = "2014-02-26"
 slug = "2014/02/26/resizing-a-vm-filesystem-from-xen-host"
-Categories = []
-+++
+tags =
+  - xen
+  - vm
+---
+
 ## Resizing the disk and filesystem of a VM
 
 I had to add more disk space to a Virtual Machine running under
