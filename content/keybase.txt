@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/gwarf
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://blog.bapt.name
+  * I am gwarf (https://keybase.io/gwarf) on keybase.
+  * I have a public key ASDP0gIMQIMA6rzuaS5XaCyP2rE2L3ODxUNRzsA34pI5CQo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120cfd2020c408300eabcee692e57682c8fdab1362f7383c54351cec037e29239090a",
+      "host": "keybase.io",
+      "kid": "0120cfd2020c408300eabcee692e57682c8fdab1362f7383c54351cec037e29239090a",
+      "uid": "f1a20dc91ef9f48ffb0e8b15ca647d19",
+      "username": "gwarf"
+    },
+    "merkle_root": {
+      "ctime": 1587543467,
+      "hash": "594bc49ab2b773be6e1d0300510649c052048725a6b558a788235b7f0bdf66f9bc673f90d7195b71c0fb6f241dc025fc08242bf78ecb428a65b76e1b06f16b50",
+      "hash_meta": "c363890e03b788b12154443e4a2eba3c9225f6934588c92565cb7aedce1cbf19",
+      "seqno": 16009515
+    },
+    "service": {
+      "entropy": "RA90lTbC4y+FOzh6rIwCsDiD",
+      "hostname": "blog.bapt.name",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.4.0"
+  },
+  "ctime": 1587543537,
+  "expire_in": 504576000,
+  "prev": "dfbc1c9da174aaa2a6bde45f2e2eab312c404f2c37ed283247468b4f145c3703",
+  "seqno": 64,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgz9ICDECDAOq87mkuV2gsj9qxNi9zg8VDUc7AN+KSOQkKp3BheWxvYWTESpcCQMQg37wcnaF0qqKmveRfLi6rMSxATyw37SgyR0aLTxRcNwPEIE7XL0Cyuv9cDPeVuxo+BiisWqIn3iL0cGKPlu4ZZnzOAgHCo3NpZ8RAFomzn1G/d0UPtVJ4XbHVPinhr4zsOwXD9S0MCutSMqCFYKef4G4P/eYZ7CWbXuGQC6CxLBhQPDu6aYalUcLLDahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIBKcqgOe2crpDbGgSN4rjZGIl79meNlt9MfOdHNf1yVAo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/gwarf
+
+==================================================================
