@@ -1,7 +1,7 @@
 ---
 title: "Terminal setup ZSH tmux powerlevel10k"
 date: 2020-04-25T17:51:44+02:00
-draft: true
+draft: false
 toc: false
 images:
 tags: 
