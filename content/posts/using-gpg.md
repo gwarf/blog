@@ -14,9 +14,9 @@ To be documented
 
 ## Checking and trusting keys
 
-http://keys.gnupg.net/
-http://keys.gnupg.net/pks/lookup?op=vindex&fingerprint=on&search=0x022A860ECDA18F02
-https://pgp.mit.edu/ # Broken?
+- http://keys.gnupg.net/
+- http://keys.gnupg.net/pks/lookup?op=vindex&fingerprint=on&search=0x022A860ECDA18F02
+- https://pgp.mit.edu/ # Broken?
 
 - Need to mark public key as trusted
   - Always have to do it manually, even if already done and published?
@@ -27,3 +27,8 @@ gpg --receive-keys $EMAIL
 gpg --edit-key $EMAIL
 gpg> trust
 ```
+
+## References
+
+- https://serverfault.com/questions/569911/how-to-verify-an-imported-gpg-key
+- https://www.liquidweb.com/kb/how-do-i-use-gpg/
