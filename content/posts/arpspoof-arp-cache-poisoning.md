@@ -4,6 +4,8 @@ date: 2020-05-02T18:19:48+02:00
 tags:
   - hacking
   - arp
+  - spoof
+  - pentest
 ---
 
 Goal: tricking `arp` cache to redirect network traffic to us "Man in the middle".
