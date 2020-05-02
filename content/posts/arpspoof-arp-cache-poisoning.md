@@ -14,7 +14,7 @@ Goal: tricking `arp` cache to redirect network traffic to us "Man in the middle"
 - VM2: 192.168.1.145
 - GW: 192.168.1.1
 
-## Preqrequisites
+## Prerequisites
 
 ```sh
 # Enable ip forwarding
@@ -23,7 +23,7 @@ sudo sh -c 'echo 1 > /proc/sys/net/ipv4/ip_forward'
 sudo apt install dsniff
 ```
 
-## Listening to traffic between two VMs from a third VM.
+## Listening to traffic between two VMs
 
 ```sh
 # Checking arp table on VM1/VM2 allow to check IP/Mac
