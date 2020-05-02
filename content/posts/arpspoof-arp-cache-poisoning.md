@@ -19,7 +19,7 @@ Goal: tricking `arp` cache to redirect network traffic to us "Man in the middle"
 ```sh
 # Enable ip forwarding
 sudo sh -c 'echo 1 > /proc/sys/net/ipv4/ip_forward'
-# Ensure arpspoof is avaailable
+# Install arpspoof (part of dsniff)
 sudo apt install dsniff
 ```
 
