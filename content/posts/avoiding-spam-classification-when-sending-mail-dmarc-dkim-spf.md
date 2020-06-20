@@ -4,7 +4,7 @@ date: 2020-06-20T11:19:29+02:00
 draft: true
 toc: false
 images:
-tags: 
+tags:
   - untagged
 ---
 
@@ -20,6 +20,7 @@ Example setup (my setup):
 ## About SPF
 
 TBD
+
 - http://www.open-spf.org/SPF_Record_Syntax/
 
 ## About DKIM
@@ -35,6 +36,7 @@ TBD
 ## About BIMI
 
 TBD
+
 - https://authindicators.github.io/rfc-brand-indicators-for-message-identification/
 
 ## Testing configuration
@@ -66,8 +68,8 @@ https://www.mail-tester.com
 
 Put mails not passing the DMARC check in quarantine (likely to go to be marked as spam, but not rejected.)
 
-```
- _dmarc.bapt.name. TXT v=DMARC1;p=quarantine;rua=mailto:baptiste@bapt.name;ruf=mailto:baptiste@bapt.name;
+```dns
+_dmarc.bapt.name. TXT "v=DMARC1;p=quarantine;rua=mailto:baptiste@bapt.name;ruf=mailto:baptiste@bapt.name;"
 ```
 
 ### Reporting errors for badoulin.fr and debiocidons.fr to bapt.name
@@ -76,20 +78,17 @@ Put mails not passing the DMARC check in quarantine (likely to go to be marked a
 
 Authorisation should be configured in bapt.name DNS zone:
 
-```
-Type: TXT
-Host/Name: badoulin.fr._report._dmarc.bapt.name
-Value: v=DMARC1
+```dns
+badoulin.fr._report._dmarc.bapt.name TXT "v=DMARC1"
 ```
 
 ### Pointing to the DMARC configuration of another domain
 
 On badoulin.fr:
 
-```
-Type: CNAME
-Host/name: _dmarc.badoulin.fr.
-Value: _dmarc.bapt.name.
+
+```dns
+_dmarc.badoulin.fr.  CNAME _dmarc.bapt.name.
 ```
 
 ## Fixing problems with email providers refusing emails
