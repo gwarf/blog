@@ -86,20 +86,20 @@ The smart card should show up:
 
 ```sh
 ❯ openpgp-tool -C -K
-Using reader with a card: Nitrokey Nitrokey Pro (000000000000000000008016) 00 00
-AID:             d2:76:00:01:24:01:03:03:00:05:00:00:80:16:00:00
+Using reader with a card: Nitrokey Nitrokey Pro (0000000000000000000(...)16) 00 00
+AID:             d2:76:00:01:24:01:(...):00:00:80:16:00:00
 Version:         3.3
 Manufacturer:    ZeitControl
-Serial number:   00008016
+Serial number:   00(...)16
 Aut Algorithm:   RSA4096
 Aut Create Date: 2020-07-09 16:39:14
-Aut Fingerprint: 9e:4a:04:77:6b:6d:36:36:d9:fc:4b:2e:60:5c:70:11:5e:f0:57:e3
+Aut Fingerprint: 9e:4a:04:77:6b:6d:36:(...):5c:70:11:5e:f0:57:e3
 Dec Algorithm:   RSA4096
 Dec Create Date: 2020-07-09 16:37:12
-Dec Fingerprint: f3:67:ba:47:cd:ed:90:f8:db:c4:ed:1b:14:a2:b2:22:c2:11:ac:0d
+Dec Fingerprint: f3:67:ba:47:cd:ed:90:(...):1b:14:a2:b2:22:c2:11:ac:0d
 Sig Algorithm:   RSA4096
 Sig Create Date: 2020-07-09 16:38:47
-Sig Fingerprint: 3f:e2:db:50:71:72:15:18:f6:3d:ba:20:e5:4d:4f:bc:01:ce:ba:44
+Sig Fingerprint: 3f:e2:db:50:71:72:(...):ba:20:e5:4d:4f:bc:01:ce:ba:44
 ```
 
 You can also scan for the card reader using `pcsc_scan`:
@@ -113,7 +113,7 @@ the S/MIME certificate to the key:
 
 ```sh
 ❯ pkcs15-init --delete-objects privkey,pubkey --id 3 --store-private-key baptiste_grenier_until_2021_02.p12[0/3084]t pkcs12 --auth-id 3 --verify-pin
-Using reader with a card: Nitrokey Nitrokey Pro (000000000000000000008016) 00 00
+Using reader with a card: Nitrokey Nitrokey Pro (0000000000000000000(...)16) 00 00
 User PIN required.
 Please enter User PIN [Admin PIN]:
 Deleted 2 objects
@@ -122,7 +122,7 @@ Please enter passphrase to unlock secret key:
 Importing 1 certificates:
   0: /DC=org/DC=terena/DC=tcs/C=NL/O=Stichting EGI/OU=Operations/CN=Baptiste Grenier
 ❯ pkcs15-init --delete-objects privkey,pubkey --id 2 --store-private-key baptiste_grenier_until_2021_02.p12 --format pkcs12 --auth-id 3 --verify-pin
-Using reader with a card: Nitrokey Nitrokey Pro (000000000000000000008016) 00 00
+Using reader with a card: Nitrokey Nitrokey Pro (0000000000000000000(...)16) 00 00
 User PIN required.
 Please enter User PIN [Admin PIN]:
 Deleted 2 objects
@@ -260,12 +260,12 @@ The card will now be re-configured to generate a key of 4096 bits
 
 gpg/card> list
 
-Reader ...........: 20A0:4108:000000000000000000008016:0
-Application ID ...: D2760001240103030005000080160000
+Reader ...........: 20A0:4108:0000000000000000000(...)16:0
+Application ID ...: D2760001240103030005000(...)160000
 Application type .: OpenPGP
 Version ..........: 3.3
 Manufacturer .....: ZeitControl
-Serial number ....: 00008016
+Serial number ....: 000(...)16
 Name of cardholder: Grenier Baptiste
 Language prefs ...: fr
 Salutation .......: Mr.
@@ -298,14 +298,14 @@ There is NO WARRANTY, to the extent permitted by law.
 
 Secret key is available.
 
-sec  rsa4096/022A860ECDA18F02
+sec  rsa4096/XXXXXXXXXXXXXXXX
      created: 2019-04-19  expires: never       usage: SC
      trust: ultimate      validity: ultimate
-ssb  rsa4096/14A2B222C211AC0D
+ssb  rsa4096/XXXXXXXXXXXXXXXX
      created: 2020-07-09  expires: never       usage: E
-ssb  rsa4096/E54D4FBC01CEBA44
+ssb  rsa4096/XXXXXXXXXXXXXXXX
      created: 2020-07-09  expires: never       usage: S
-ssb  rsa4096/605C70115EF057E3
+ssb  rsa4096/XXXXXXXXXXXXXXXX
      created: 2020-07-09  expires: never       usage: A
 [ultimate] (1). Baptiste Grenier <baptiste@bapt.name>
 [ultimate] (2)  Baptiste Grenier (EGI) <baptiste.grenier@egi.eu>
@@ -361,12 +361,12 @@ Check the status of the nitrokey in another terminal:
 ```sh
 ❯ gpg --card-status
 
-Reader ...........: 20A0:4108:000000000000000000008016:0
-Application ID ...: D2760001240103030005000080160000
+Reader ...........: 20A0:4108:0000000000000000000(...)16:0
+Application ID ...: D2760001240103030005000(...)160000
 Application type .: OpenPGP
 Version ..........: 3.3
 Manufacturer .....: ZeitControl
-Serial number ....: 00008016
+Serial number ....: 000(...)16
 Name of cardholder: Grenier Baptiste
 Language prefs ...: fr
 Salutation .......: Mr.
@@ -378,20 +378,20 @@ Max. PIN lengths .: 64 64 64
 PIN retry counter : 3 0 3
 Signature counter : 0
 KDF setting ......: off
-Signature key ....: 3FE2 DB50 7172 1518 F63D  BA20 E54D 4FBC 01CE BA44
+Signature key ....: 3FE2 DB50 7172 1518 (...) 01CE BA44
       created ....: 2020-07-09 16:38:47
-Encryption key....: F367 BA47 CDED 90F8 DBC4  ED1B 14A2 B222 C211 AC0D
+Encryption key....: F367 BA47 CDED 90F8 (...) C211 AC0D
       created ....: 2020-07-09 16:37:12
-Authentication key: 9E4A 0477 6B6D 3636 D9FC  4B2E 605C 7011 5EF0 57E3
+Authentication key: 9E4A 0477 6B6D 3636 (...) 5EF0 57E3
       created ....: 2020-07-09 16:39:14
-General key info..: sub  rsa4096/E54D4FBC01CEBA44 2020-07-09 Baptiste Grenier <baptiste@bapt.name>
-sec   rsa4096/022A860ECDA18F02  created: 2019-04-19  expires: never
-ssb>  rsa4096/14A2B222C211AC0D  created: 2020-07-09  expires: never
-                                card-no: 0005 00008016
-ssb>  rsa4096/E54D4FBC01CEBA44  created: 2020-07-09  expires: never
-                                card-no: 0005 00008016
-ssb>  rsa4096/605C70115EF057E3  created: 2020-07-09  expires: never
-                                card-no: 0005 00008016
+General key info..: sub  rsa4096/XXXXXXXXXXXXXXXX 2020-07-09 Baptiste Grenier <baptiste@bapt.name>
+sec   rsa4096/XXXXXXXXXXXXXXXX  created: 2019-04-19  expires: never
+ssb>  rsa4096/XXXXXXXXXXXXXXXX  created: 2020-07-09  expires: never
+                                card-no: 0005 000(...)16
+ssb>  rsa4096/XXXXXXXXXXXXXXXX  created: 2020-07-09  expires: never
+                                card-no: 0005 000(...)16
+ssb>  rsa4096/XXXXXXXXXXXXXXXX  created: 2020-07-09  expires: never
+                                card-no: 0005 000(...)16
 ```
 
 #### Usage with neomutt
