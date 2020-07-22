@@ -4,11 +4,15 @@ date: 2020-04-14T12:51:06+02:00
 draft: false
 toc: false
 images:
-tags: 
+tags:
   - hacking
 ---
 
 Some notes while doing some CTF.
+
+## Collecting information about an IP
+
+- [anti-hacker-alliance.com](https://anti-hacker-alliance.com)
 
 ## Port scan with nmap
 
