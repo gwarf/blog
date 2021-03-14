@@ -12,12 +12,13 @@ Some notes while doing some CTF.
 
 ## Collecting information about an IP
 
+- [Shodan](https://shodan.io)
 - [anti-hacker-alliance.com](https://anti-hacker-alliance.com)
 
 ## Port scan with nmap
 
 ```sh
-sudo nmap -sC -sV -oA nmap/version $IP
+sudo nmap -sC -sV -oA outputfile $IP
 ```
 
 ## Web inventory
@@ -25,12 +26,18 @@ sudo nmap -sC -sV -oA nmap/version $IP
 ### Searching for webdirectories
 
 ```sh
-gobuster dir -u http://oouch.htb:5000/ -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt | tee gobuster-directories.txt
+gobuster dir -u http://oouch.htb:5000/ \
+  -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt \
+  | tee gobuster-directories.txt
 ```
 
 ### Searching for domain names
 
 ```sh
-gobuster vhost -u http://oouch.htb:5000/ -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt | tee gobuster-vhosts.txt
-wfuzz  --hh 0 --hc 302 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt  -H 'Host: FUZZ.oouch.htb' -u http://oouch.htb:5000/
+gobuster vhost -u http://oouch.htb:5000/ \
+  -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt \
+  | tee gobuster-vhosts.txt
+wfuzz  --hh 0 --hc 302 \
+  -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt \
+  -H 'Host: FUZZ.oouch.htb' -u http://oouch.htb:5000/
 ```
