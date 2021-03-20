@@ -61,8 +61,8 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
     url = "https://github.com/gwarf"
 
   [[params.social]]
-    name = "twitter"
-    url = "https://twitter.com/baptgrenier"
+    name = "mastordon"
+    url = "https://framapiaf.org/@gwarf"
 
   [[params.social]]
     name = "linkedin"
