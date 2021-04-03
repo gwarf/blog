@@ -27,7 +27,7 @@ works quite well on me.
 
 ### Hack the box
 
-{{< figure src="http://www.hackthebox.eu/badge/image/285350" alt="gwarf Hack The Box" >}}
+{{< figure src="https://www.hackthebox.eu/badge/image/285350" alt="gwarf Hack The Box" >}}
 
 
 ### Gaming
