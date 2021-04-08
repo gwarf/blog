@@ -29,14 +29,13 @@ works quite well on me.
 
 {{< figure src="https://www.hackthebox.eu/badge/image/285350" alt="gwarf Hack The Box" >}}
 
-
 ### Gaming
 
 I also ~~lost~~ invested quite some hours in various games, to chill in alternative realities.
 
 {{< figure src="https://card.psnprofiles.com/1/gwarf_baptiste.png" alt="gwarf PSN profile" >}}
 
-You cal also find me on [Steam](https://steamcommunity.com/id/frawg12/).
+You can also find me on [Steam](https://steamcommunity.com/id/frawg12/).
 
 ## This place
 
