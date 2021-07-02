@@ -15,6 +15,7 @@ tags:
   - powerlevel10k
   - hack-nerd-font
   - neovim
+  - vim
 ---
 
 Today I was contacted by a person asking for my terminal setup, after having

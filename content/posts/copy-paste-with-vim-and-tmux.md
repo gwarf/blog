@@ -1,7 +1,11 @@
 ---
 title: "Copy Paste With Vim and Tmux"
 date: 2020-04-28T11:07:46+02:00
-draft: true
+tags:
+  - terminal
+  - tmux
+  - neovim
+  - vim
 ---
 
 ## Copying between two VIM sessions
@@ -24,3 +28,25 @@ formatting (line numbers and so on).
 - https://github.com/tmux-plugins/tmux-copycat
 - https://github.com/tmux-plugins/tmux-yank
 - https://vim.fandom.com/wiki/Accessing_the_system_clipboard
+
+- Selecting content in tmux:
+
+  - Enter tmux pane history "navigation" mode: `ctrl-b+[`
+  - Use arrows or `h/j/k/l` to go to where you need
+  - Use `V` to move in line selection mode
+  - Use `y` to copy (yank) to system clipboard
+
+- Pasting using tmux
+  - `ctrl-b + ]`
+
+## Copying from TMUX to VIM
+
+- Selecting content in tmux:
+  - Enter tmux pane history "navigation" mode: `ctrl-b+[`
+  - Use arrows or `h/j/k/l` to go to where you need
+  - Use `V` to move in line selection mode
+  - Use `y` to copy (yank) to system clipboard
+- Pasting using tmux
+  - `ctrl-b + ]`
+- Or pasting in vim
+  - Paste content from system clipboard (aka `+`): `"+p`
