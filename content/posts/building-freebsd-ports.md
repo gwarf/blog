@@ -47,8 +47,10 @@ This page documents the steps I followed to set my building environment up.
 ## Tooling
 
 I ended up using a few tools:
+
 - [poudriere](https://man.freebsd.org/cgi/man.cgi?poudriere): to build ports in FreeBSD Jails
 - [portshaker](https://man.freebsd.org/cgi/man.cgi?portshaker): to keep ports tree udpated and merged. And also because it's a
+
 tool that I just discovered and that was in fact created by an old colleague,
 another memory from the past :)
 
@@ -86,8 +88,9 @@ to be used to host all poudriere-related things.
 
 #### Configuring poudriere
 
-The poudriere configuration is quite straigthforward, and I only add issues
-with a few points:
+The poudriere configuration is quite straigthforward, and I mainly add an
+issue with a single point:
+
 - From the official doc and other posts I saw, it wasn't clear to me how to
   setup BASEFS properly, sawing many examples specifying a `ZROOTFS`, but
   keeping `BASEFS` at another path.
@@ -125,6 +128,7 @@ $ doas poudriere jail -c -j 14-1-amd64 -v 14.1-RELEASE
 #### Creating the ports tree
 
 Poudriere will use a ports tree made of two souces:
+
 - the upstream port tree, using it's latest version
 - a repository of custom ports
 
@@ -164,6 +168,7 @@ Shells scripts are used to populate the source ports tree. For more details see
 potshaker.d (5)](https://man.freebsd.org/cgi/man.cgi?query=portshaker.d).
 
 As already mentioned, I will need two ports tree sources:
+
 - freebsd: the upstream FreeBSD ports tree
 - custom: a git repository where I host the few ports I maintain
 
@@ -216,6 +221,7 @@ run_portshaker_command "$@"
 # Making the script executable
 $ chmod +x /usr/local/etc/portshaker.d/custom
 ```
+
 ##### Configuring portshaker
 
 The main configuration of [potshaker]() is in
