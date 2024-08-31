@@ -309,7 +309,7 @@ It is possible to access the repository locally.
 
 Create repository definition in `/usr/local/etc/pkg/repos/custom.conf`:
 
-```
+```nginx
 Custom: {
   url: "file:////poudriere/data/packages/14-1-amd64-main"
 }
