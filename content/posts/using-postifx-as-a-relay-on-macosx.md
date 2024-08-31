@@ -1,7 +1,6 @@
 ---
 title: "Using Postifx as a Relay on MacOS"
 date: 2020-04-21T14:53:58+02:00
-draft: true
 ---
 
 ## Local Postfix relying to Google's SMTP server
