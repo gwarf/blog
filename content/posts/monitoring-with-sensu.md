@@ -2,7 +2,6 @@
 title: "Monitoring with Sensu"
 date: 2020-04-25T15:56:13+02:00
 toc: false
-draft: false
 images:
 tags:
   - sysadmin
