@@ -11,7 +11,8 @@ logs.
 
 Poudriere comes with some web server templates that can be used, see
 `/usr/local/share/examples/poudriere/` one of them
-is for [caddy](https://caddyserver.com/) and allows to have a very simple setup.
+is for [caddy](https://caddyserver.com/) and allows to have a very quick and
+simple setup, with even some https on localhost.
 
 ### Installing Caddy
 
@@ -27,6 +28,7 @@ Caddyi will only serve a single host, this I will replace the existing
 configuation.
 
 There is also a sample configuration at `/usr/local/etc/caddy/Caddyfile.sample`.
+
 ```shell
 doas cp /usr/local/share/examples/poudriere/Caddyfile.sample /usr/local/etc/caddy/Caddyfile
 ```
@@ -89,5 +91,7 @@ Start Caddy manually as it's not expected to be used all the time:
 # Start caddy manually
 doas service caddy onestart
 ```
+
+The Caddy logs are in `/var/log/caddy/caddy.log`.
 
 Then open [https://localhost](https://localhost), and accept the certificate.
