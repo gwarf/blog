@@ -1,6 +1,7 @@
 ---
 title: "Building Freebsd Ports"
 date: 2024-08-31T15:03:41+02:00
+toc: true
 tags:
   - freebsd
   - tutorial
