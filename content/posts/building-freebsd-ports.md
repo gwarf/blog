@@ -1,7 +1,11 @@
 ---
 title: "Building Freebsd Ports"
 date: 2024-08-31T15:03:41+02:00
-draft: true
+tags:
+  - freebsd
+  - tutorial
+  - ports
+  - maintainer
 ---
 
 ## Back to an old platonic love
@@ -24,6 +28,8 @@ world.
 I've got a few ports to maintain (including an old port of pydf I became the
 maintainer of, and that I was a bit ashamed to let rot due to lack of
 time...), and I've been looking at options for building the ports.
+
+This page documents the steps I followed to set my building environment up.
 
 ## My requirements - wishes
 
