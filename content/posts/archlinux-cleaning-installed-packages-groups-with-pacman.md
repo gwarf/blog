@@ -1,7 +1,6 @@
 ---
 title: "Archlinux cleaning installed packages groups with Pacman"
 date: 2020-05-01T10:37:52+02:00
-draft: false
 toc: false
 images:
 tags: 
