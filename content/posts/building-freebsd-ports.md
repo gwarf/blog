@@ -9,6 +9,8 @@ tags:
   - maintainer
 ---
 
+> Post covering how to build FreeBSD ports using poudriere and portshaker.
+
 ## Back to an old platonic love
 
 Lately, I had to came back to FreeBSD, and take over maintenance of some
@@ -55,7 +57,7 @@ I ended up using a few tools:
 tool that I just discovered and that was in fact created by an old colleague,
 another memory from the past :)
 
-## Setting the tools udpated
+## Setting the tools up
 
 I will make use of [doas](https://man.freebsd.org/cgi/man.cgi?query=doas)
 to run the commands as root.
