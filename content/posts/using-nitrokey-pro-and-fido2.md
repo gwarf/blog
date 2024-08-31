@@ -1,7 +1,6 @@
 ---
 title: "Using Nitrokey Pro and Fido2"
 date: 2020-07-09T14:36:23+02:00
-draft: false
 toc: true
 images:
 tags:
