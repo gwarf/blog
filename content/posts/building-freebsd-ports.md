@@ -67,8 +67,8 @@ to run the commands as root.
 #### Installing poudriere, portshaker and friends
 
 ```shell
-$ doas pkg update
-$ doas pkg install poudriere git portshaker
+doas pkg update
+doas pkg install poudriere git portshaker
 ```
 
 #### Setting up poudriere
@@ -77,13 +77,13 @@ The first step is to create the ZFS dataset that will be used by poudriere.
 
 ```shell
 # Find a suitable ZFS pool, for me it will be zroot
-$ zpool list
+zpool list
 
 # Create a ZFS dataset for poudriere
-$ doas zfs create zroot/poudriere
+doas zfs create zroot/poudriere
 
 # Set the moundpoint of the ZFS dataset for poudriere
-$ doas zfs set mountpoint=/poudriere zroot/poudriere
+doas zfs set mountpoint=/poudriere zroot/poudriere
 ```
 
 Now we have a nice ZFS dataset `zroot/poudriere` mounted on `/poudriere` and ready
@@ -98,8 +98,9 @@ issue with a single point:
   setup BASEFS properly, sawing many examples specifying a `ZROOTFS`, but
   keeping `BASEFS` at another path.
 
+Configuring `/usr/local/etc/poudriere.conf`:
+
 ```shell
-$ cat /usr/local/etc/poudriere.conf
 ZPOOL=zroot
 ZROOTFS=/poudriere
 FREEBSD_HOST=https://download.FreeBSD.org
@@ -125,7 +126,7 @@ See [poudriere-jail (8)](https://man.freebsd.org/cgi/man.cgi?poudriere-jail).;
 
 ```shell
 # Create the build jail
-$ doas poudriere jail -c -j 14-1-amd64 -v 14.1-RELEASE
+doas poudriere jail -c -j 14-1-amd64 -v 14.1-RELEASE
 ```
 
 #### Creating the ports tree
@@ -143,9 +144,9 @@ for help on how to use `poudriere ports`.
 
 ```shell
 # Create an empty ports tree, named main
-$ doas poudriere ports -cF -p main
+doas poudriere ports -cF -p main
 # Check the ports tree that got created
-$ poudriere ports -l
+poudriere ports -l
 ```
 
 #### Setting up portshaker
@@ -161,8 +162,8 @@ Optionally, it's possible to create a dedicated volume for portshaker cache.
 It can be useful if the root ZFS volume is limited in space
 
 ```shell
-$ zfs create zroot/portshaker
-$ zfs set mountpoint=/var/cache/portshaker zroot/portshaker
+zfs create zroot/portshaker
+zfs set mountpoint=/var/cache/portshaker zroot/portshaker
 ```
 
 ##### Configuring the ports trees portshaker will maintain and merge
@@ -178,9 +179,9 @@ As already mentioned, I will need two ports tree sources:
 For the FreeBSD source, I use the
 [official FreeBSD ports GitHub mirror](https://github.com/freebsd/freebsd-ports.git).
 
+Create `/usr/local/etc/portshaker.d/freebsd`:
+
 ```shell
-# Creating the FreeBSD ports tree source
-$ vim /usr/local/etc/portshaker.d/freebsd
 #!/bin/sh
 . /usr/local/share/portshaker/portshaker.subr
 if [ "$1" != '--' ]; then
@@ -191,8 +192,11 @@ method="git"
 git_clone_uri="https://github.com/freebsd/freebsd-ports.git"
 git_branch="main"
 run_portshaker_command "$@"
+```
 
-# Making the script executable
+Make the script executable:
+
+```shell
 $ chmod +x /usr/local/etc/portshaker.d/freebsd
 ```
 
@@ -207,9 +211,9 @@ In case authentication is required, you will have to ensure the `root` user
 can properly authenticate, using a personal authentication token, an SSH key
 or else, as supported by the git client.
 
+Create `/usr/local/etc/portshaker.d/custom`:
+
 ```shell
-# Creating the custom ports tree source
-$ vim /usr/local/etc/portshaker.d/custom
 #!/bin/sh
 . /usr/local/share/portshaker/portshaker.subr
 if [ "$1" != '--' ]; then
@@ -220,9 +224,12 @@ method="git"
 git_clone_uri="https://github.com/gwarf/freebsd-ports-custom.git"
 git_branch="main"
 run_portshaker_command "$@"
+```
 
-# Making the script executable
-$ chmod +x /usr/local/etc/portshaker.d/custom
+Make the script executable:
+
+```shell
+chmod +x /usr/local/etc/portshaker.d/custom
 ```
 
 ##### Configuring portshaker
@@ -239,8 +246,9 @@ The `custom` ports tree will be used as an overlay on the offical FreeBSD
 ports tree, overwriting existing files, to update existing ports, and adding
 new files and directories for adding new ports.
 
+Create `/usr/local/etc/portshaker.conf`:
+
 ```shell
-$ vim /usr/local/etc/portshaker.conf
 # Directory to cache port trees
 mirror_base_dir="/var/cache/portshaker"
 use_zfs="yes"
@@ -261,13 +269,13 @@ parameter, meaning that it will update and merge all trees.
 
 ```shell
 # Update a single port tree
-$ portshaker -u freebsd
+portshaker -u freebsd
 # Update all ports trees
-$ portshaker -U
+portshaker -U
 # Merge prot trees
-$ porthakser -M
+porthakser -M
 # Update and merge port trees
-$ portshaker
+portshaker
 ```
 
 ### Building the ports
@@ -277,8 +285,8 @@ built, let's first populate it:
 
 ```shell
 # Populating the list of packages to be built
-$ doas echo 'security/rbw' > /usr/local/etc/poudriere.d/pkglist
-$ doas echo 'www/lua-resty-session' >> /usr/local/etc/poudriere.d/pkglist
+doas echo 'security/rbw' > /usr/local/etc/poudriere.d/pkglist
+doas echo 'www/lua-resty-session' >> /usr/local/etc/poudriere.d/pkglist
 ```
 
 Then it's possible to build the ports with the jail template that was
@@ -286,9 +294,9 @@ previously created.
 
 ```shell
 # Updating and merging the trees
-$ portshaker
+portshaker
 # Building packages verbosely using the merged ports trees
-$ doas poudriere bulk -f /usr/local/etc/poudriere.d/pkglist -j 14-1-amd64 -p main -v -v -v
+doas poudriere bulk -f /usr/local/etc/poudriere.d/pkglist -j 14-1-amd64 -p main -v -v -v
 ```
 
 The resulting ports will be in `/poudriere/data/packages/14-1-amd64-main/`,
@@ -297,18 +305,23 @@ name of the poudriere ports tree.
 
 ### Using the ports
 
-It is possible to access the repository locally:
+It is possible to access the repository locally.
 
-```shell
-# Create repository definition
-$ doas vim /usr/local/etc/pkg/repos/custom.conf
+Create repository definition in `/usr/local/etc/pkg/repos/custom.conf`:
+
+```
 Custom: {
   url: "file:////poudriere/data/packages/14-1-amd64-main"
 }
+```
+
+Use the repository:
+
+```shell
 # Update packages list
-$ doas pkg update
+doas pkg update
 # Search for a package, showing its origin
-$ doas search -Q repository rbw
+doas search -Q repository rbw
 rbw-1.11.1
 Repository     : Custom [file:////poudriere/data/packages/14-1-amd64-main]
 Comment        : Unofficial Bitwarden cli
@@ -328,7 +341,7 @@ do some changes and tests. As the ports as built as the `nobody` user, it may
 be required to excalate to root via `su -`.
 
 ```shell
-$ doas poudriere testport -j 14-1-amd64 -p main -o security/rbw
+doas poudriere testport -j 14-1-amd64 -p main -o security/rbw
 ```
 
 ## To be followed
