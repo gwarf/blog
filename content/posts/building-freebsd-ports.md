@@ -13,8 +13,8 @@ tags:
 
 ## Back to an old platonic love
 
-Lately, I had to came back to FreeBSD, and take over maintenance of some
-services deployed in FreeBSD.
+Lately, I had to came back to [FreeBSD](https://www.freebsd.org/), and take
+over maintenance of some services deployed in FreeBSD.
 
 I've been an happy FreeBSD years ago, I enjoyed this a lot, the handbook and
 documentation is marvelous, many things just works, and I have a beard.
