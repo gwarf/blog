@@ -16,21 +16,23 @@ tags:
 Lately, I had to came back to [FreeBSD](https://www.freebsd.org/), and take
 over maintenance of some services deployed in FreeBSD.
 
-I've been an happy FreeBSD years ago, I enjoyed this a lot, the handbook and
-documentation is marvelous, many things just works, and I have a beard.
-I also remember I was using long time ago a very cool FreeBSD setup guide,
-from [iMil](https://imil.net/blog/).
-And the GCU Squad was spreading fun and love around the (BSD) world...
+I've been an happy FreeBSD years ago, I enjoyed this a lot, the
+[handbook](https://docs.freebsd.org/en/books/handbook/) and other
+documentation are marvelous, many things "just works", and I have a beard.
 
-And in fact I moved a bit away mainly due to lack of available time. You know,
-$WORK, $kids, $LIFE, ... :)
+Long time ago I was also enjoying a very cool FreeBSD setup guide, from
+[iMil](https://imil.net/blog/). And together with GCU Squad they were
+spreading fun and love around the (BSD) world...
 
-So thanks to $WORK I know have the opportunity to dive again in the FreeBSD
+In fact I moved a bit away mainly due to lack of available time. You know,
+$WORK, $kids, $LIFE, ... ^^
+
+So thanks to $WORK, I know have the opportunity to dive again in the FreeBSD
 world.
 
 I've got a few ports to maintain (including an old port of pydf I became the
 maintainer of, and that I was a bit ashamed to let rot due to lack of
-time...), and I've been looking at options for building the ports.
+time...), and I've been recently looking at options for building the ports.
 
 This page documents the steps I followed to set my building environment up.
 
