@@ -254,6 +254,7 @@ Create `/usr/local/etc/portshaker.conf`:
 # Directory to cache port trees
 mirror_base_dir="/var/cache/portshaker"
 use_zfs="yes"
+ports_trees="main"
 # Poudriere-related configuration
 poudriere_dataset="zroot/poudriere"
 poudriere_ports_mountpoint="/poudriere/ports"
