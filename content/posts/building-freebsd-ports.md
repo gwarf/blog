@@ -82,10 +82,7 @@ The first step is to create the ZFS dataset that will be used by poudriere.
 zpool list
 
 # Create a ZFS dataset for poudriere
-doas zfs create zroot/poudriere
-
-# Set the moundpoint of the ZFS dataset for poudriere
-doas zfs set mountpoint=/poudriere zroot/poudriere
+doas zfs create -o mountpoint=/poudriere zroot/poudriere
 ```
 
 Now we have a nice ZFS dataset `zroot/poudriere` mounted on `/poudriere` and ready
@@ -147,6 +144,8 @@ for help on how to use `poudriere ports`.
 ```shell
 # Create an empty ports tree, named main
 doas poudriere ports -cF -p main
+# Create folder for distfiles
+doas mkdir /poudriere/distfiles
 # Check the ports tree that got created
 poudriere ports -l
 ```
@@ -164,8 +163,7 @@ Optionally, it's possible to create a dedicated volume for portshaker cache.
 It can be useful if the root ZFS volume is limited in space
 
 ```shell
-zfs create zroot/portshaker
-zfs set mountpoint=/var/cache/portshaker zroot/portshaker
+doas zfs create -o mountpoint=/var/cache/portshaker zroot/portshaker
 ```
 
 ##### Configuring the ports trees portshaker will maintain and merge
@@ -191,7 +189,7 @@ if [ "$1" != '--' ]; then
 fi
 shift
 method="git"
-git_clone_uri="https://github.com/freebsd/freebsd-ports.git"
+git_clone_uri="https://git.freebsd.org/ports.git"
 git_branch="main"
 run_portshaker_command "$@"
 ```
@@ -272,13 +270,13 @@ parameter, meaning that it will update and merge all trees.
 
 ```shell
 # Update a single port tree
-portshaker -u freebsd
+doas portshaker -u freebsd
 # Update all ports trees
-portshaker -U
+doas portshaker -U
 # Merge prot trees
-porthakser -M
+doas porthakser -M
 # Update and merge port trees
-portshaker
+doas portshaker
 ```
 
 ### Building the ports
@@ -297,9 +295,9 @@ previously created.
 
 ```shell
 # Updating and merging the trees
-portshaker
+doas portshaker
 # Building packages verbosely using the merged ports trees
-doas poudriere bulk -f /usr/local/etc/poudriere.d/pkglist -j 14-1-amd64 -p main -v -v -v
+doas poudriere bulk -f /usr/local/etc/poudriere.d/pkglist -j 14-1-amd64 -p main -v -v
 ```
 
 The resulting ports will be in `/poudriere/data/packages/14-1-amd64-main/`,
