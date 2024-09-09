@@ -312,13 +312,15 @@ Create repository definition in `/usr/local/etc/pkg/repos/custom.conf`:
 
 ```json
 Custom: {
-  url: "file:////poudriere/data/packages/14-1-amd64-main"
+  url: "file:///poudriere/data/packages/14-1-amd64-main"
 }
 ```
 
 Use the repository:
 
 ```shell
+# Check repositories configuration
+pkg -vv
 # Update packages list
 doas pkg update
 # Search for a package, showing its origin
@@ -337,9 +339,9 @@ When working on ports, it's also very convenient to use
 [poudiere-testport (8)](https://man.freebsd.org/cgi/man.cgi?query=poudriere-testport)
 to test an individual port, before using it, and/or submitting it.
 
-Adding the `-i` paramter will allow to spawn an interactive shell, allowing to
-do some changes and tests. As the ports as built as the `nobody` user, it may
-be required to excalate to root via `su -`.
+Adding the `-i` parameter spawns an interactive shell at the end of the run,
+allowing to do changes and tests. As the ports as built as the `nobody` user,
+it may be required to excalate to root via `su -`.
 
 ```shell
 doas poudriere testport -j 14-1-amd64 -p main -o security/rbw
