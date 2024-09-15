@@ -155,7 +155,7 @@ poudriere ports -l
 So now we have a ports tree ready to be consumed by poudriere, but we need to
 populate it. I'm using [portshaker](https://github.com/smortex/portshaker) for this.
 
-Thanks Romain for porthshaker, sorry for being that bad at keeping contact :)
+Thanks Romain for porthshaker!
 
 ##### Creating a ZFS dataset for the portshaker cache
 
