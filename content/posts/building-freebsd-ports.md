@@ -234,9 +234,9 @@ chmod +x /usr/local/etc/portshaker.d/custom
 
 ##### Configuring portshaker
 
-The main configuration of [potshaker]() is in
-`/usr/local/etc/portshaker.conf`, and an sample file is provided as `/usr/local/etc/portshaker.conf.sample`.
-The man page is helpful
+The main configuration of [potshaker](https://github.com/smortex/portshaker)
+is in `/usr/local/etc/portshaker.conf`, and an sample file is provided as
+`/usr/local/etc/portshaker.conf.sample`. The man page is helpful
 [portshaker.conf (5)](https://man.freebsd.org/cgi/man.cgi?query=portshaker.conf).
 
 The goal of this configuration is to populate the `/poudriere/ports` ports
@@ -360,7 +360,7 @@ with.
 
 ## References
 
-Here is some documetation I followed to set this up, thanks to all the
+Here is some documentation I followed to set this up, thanks to all the
 authors.
 
 - [FreeBSD Handbook: building packages with poudriere](https://docs.freebsd.org/en/books/handbook/ports/#ports-poudriere)
