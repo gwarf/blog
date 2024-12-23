@@ -197,7 +197,7 @@ run_portshaker_command "$@"
 Make the script executable:
 
 ```shell
-$ chmod +x /usr/local/etc/portshaker.d/freebsd
+doas chmod +x /usr/local/etc/portshaker.d/freebsd
 ```
 
 For the custom source, I will use a public GitHub repositories that I manage:
@@ -229,7 +229,7 @@ run_portshaker_command "$@"
 Make the script executable:
 
 ```shell
-chmod +x /usr/local/etc/portshaker.d/custom
+doas chmod +x /usr/local/etc/portshaker.d/custom
 ```
 
 ##### Configuring portshaker
