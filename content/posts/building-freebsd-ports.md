@@ -286,8 +286,8 @@ built, let's first populate it:
 
 ```shell
 # Populating the list of packages to be built
-doas echo 'security/rbw' > /usr/local/etc/poudriere.d/pkglist
-doas echo 'www/lua-resty-session' >> /usr/local/etc/poudriere.d/pkglist
+doas sh -c "echo 'security/rbw' > /usr/local/etc/poudriere.d/pkglist""
+doas sh -c "echo 'www/lua-resty-session' >> /usr/local/etc/poudriere.d/pkglist""
 ```
 
 Then it's possible to build the ports with the jail template that was
