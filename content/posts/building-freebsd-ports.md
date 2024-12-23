@@ -324,7 +324,7 @@ pkg -vv
 # Update packages list
 doas pkg update
 # Search for a package, showing its origin
-doas search -Q repository rbw
+doas pkg search -Q repository rbw
 rbw-1.11.1
 Repository     : Custom [file:////poudriere/data/packages/14-1-amd64-main]
 Comment        : Unofficial Bitwarden cli
