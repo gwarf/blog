@@ -21,7 +21,7 @@ tags:
 
 ## Tooling
 
-> See [Building FreeBSD ports](./building-freebsd-ports.md).
+> See [Building FreeBSD ports]({{< ref "building-freebsd-ports.md" >}}).
 
 ## Setting the tools up
 
