@@ -279,6 +279,14 @@ doas porthakser -M
 doas portshaker
 ```
 
+### Using custom option allowing to build Obsidian
+
+```shell
+doas vim /usr/local/etc/poudriere.d/make.conf
+# To allow building obsidian
+DISABLE_LICENSES=yes
+```
+
 ### Building the ports
 
 I use `/usr/local/etc/poudriere.d/pkglist` to document the list of ports to be
@@ -287,6 +295,7 @@ built, let's first populate it:
 ```shell
 # Populating the list of packages to be built
 doas sh -c "echo 'security/rbw' > /usr/local/etc/poudriere.d/pkglist""
+doas sh -c "echo 'textproc/obsidian' >> /usr/local/etc/poudriere.d/pkglist""
 doas sh -c "echo 'www/lua-resty-session' >> /usr/local/etc/poudriere.d/pkglist""
 ```
 
