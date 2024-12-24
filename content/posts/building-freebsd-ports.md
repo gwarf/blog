@@ -283,6 +283,7 @@ doas portshaker
 
 ```shell
 doas vim /usr/local/etc/poudriere.d/make.conf
+# As per options in ports documentation, like /poudriere/ports/main/Mk/bsd.licenses.mk
 # To allow building obsidian
 DISABLE_LICENSES=yes
 ```
