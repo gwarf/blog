@@ -11,11 +11,11 @@ tags:
 
 > Post covering how to maintain FreeBSD ports.
 
-## My requirements - wishes
+## My requirements – wishes
 
-- Building in a clean environement with usolation from the host system
-- Being able to work as a non privileged user as much as possible
-- Having clear and simple worfklow to:
+- Building in a clean environment with isolation from the host system
+- Being able to work as a non-privileged user as much as possible
+- Having clear and simple workflow to:
   - Create new ports
   - Update existing ports
 
@@ -42,40 +42,44 @@ git clone git@github.com:gwarf/freebsd-ports-custom.git
 doas poudriere ports -c -m null -M /home/baptiste/repos/freebsd-ports-custom -p custom
 
 # Check existing port trees
-doas ports -l
+doas poudriere ports -l
  
 # Setup work env to point to local clone
-export PORTSDIR=~/repos/freebsd-ports
+export PORTSDIR=$HOME/repos/freebsd-ports
 export DISTDIR=$PORTSDIR/distfiles
-export PORT_DBDIR=~/var/db/ports
+export PORT_DBDIR=$HOME/var/db/ports
 
 # Create a branch or checkout existing one to work with
 cd $PORTSDIR
-doas git branch rbw
-doas git checkout -b rbw
+doas git branch my_port
+doas git checkout -b my_port
 
-# Copy files from the port overlay
-diff -ur ~/repos/freebsd-ports-custom/security/rbw $PORTSDIR/security/rbw
-cp -rv ~/repos/freebsd-ports-custom/security/rbw $PORTSDIR/security/
+# Copy files from the port overlay if needed
+cp -rv ~/repos/freebsd-ports-custom/security/my_port $PORTSDIR/security/
+# Compare files if needed
+diff -ur ~/repos/freebsd-ports-custom/security/my_port $PORTSDIR/security/my_port
 
 # Open port work directory
-cd $PORTSDIR/security/rbw
+cd $PORTSDIR/security/my_port
 
 # Do work to create or update the port
 # Edit the Makefile, bump version and so on
 vim Makefile
 # Update distfiles and checksums
 make makesum
+```
 
-# Run additional specific steps
+### Run additional specific steps
 
-## Go-related changes, refer to:
+#### Go-related changes, refer to:
+
+```shell
 # https://github.com/freebsd/freebsd-ports/blob/main/Mk/Uses/go.mk
 # https://docs.freebsd.org/en/books/porters-handbook/uses/#uses-go
 # https://docs.freebsd.org/en/books/porters-handbook/special/#using-go
 # Upate go depencencies
 make gomod-vendor > Makefile.deps.new
-# Copy changes, omitting changes on dexidp:dex (to be confiremd) 
+# Copy changes, omitting changes on dexidp:dex (to be confiremd)
 vimdiff Makefile.deps.new Makefile.deps
 # Do changes as needed if next commands encoutner errors
 # It may be required to fix some versions
@@ -86,22 +90,38 @@ vimdiff Makefile.deps.new Makefile.deps
 # Update distfiles checksums for go modules
 # Update distfiles checksums for go modules
 make makesum
+```
 
-## rust-related changes
+#### rust-related changes
+
+```shell
 # Update cargo crates
 make cargo-crates >> Makefile
 # Merge cargo-crates update
+```
+
+### Update package list
+
+```shell
 # Check if plist changed
 make makeplist
+```
+
+### Lint and test port
+
+```shell
 # Lint port
 portlint -A
-
 # Test using poudriere testport, and our work port tree
 doas poudriere testport -j 14-1-amd64 -p work -o security/rbw
 # If failing, it's possible to launch an interactive session
 doas poudriere testport -j 14-1-amd64 -p work -o security/rbw -i -v -v
+```
 
-# Once test are OK, publish changes back to the cust port overlay
+
+### Once test are OK, publish changes back to the custom port overlay
+
+```shell
 # Clean port work directory once finalised
 make clean
 diff -ur $PORTSDIR/security/rbw ~/repos/freebsd-ports-custom/security/rbw
@@ -123,7 +143,7 @@ doas git pull
 doas git pull rebase origin/main rbw
 ```
 
-## Update rbw version and send a new patch
+## Use case: updating rbw version and sending a new patch
 
 ```shell
 cd ~/repos/freebsd-ports-custom/security/rbw
@@ -140,7 +160,7 @@ doas portshaker
 doas poudriere testport -j 14-1-amd64 -p main -o security/rbw -i
 su -
 # Update cargo crates
-#FIXME: this reports issues
+# FIXME: this reports issues
 # Not validating first entry in CATEGORIES due to being outside of PORTSDIR.
 make cargo-crates >> Makefile
 # Merge cargo-crates update
