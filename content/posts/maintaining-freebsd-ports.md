@@ -71,12 +71,14 @@ make makesum
 
 ### Run additional specific steps
 
-#### Go-related changes, refer to:
+#### Go-related changes
+
+Refer to:
+- https://github.com/freebsd/freebsd-ports/blob/main/Mk/Uses/go.mk
+- https://docs.freebsd.org/en/books/porters-handbook/uses/#uses-go
+- https://docs.freebsd.org/en/books/porters-handbook/special/#using-go
 
 ```shell
-# https://github.com/freebsd/freebsd-ports/blob/main/Mk/Uses/go.mk
-# https://docs.freebsd.org/en/books/porters-handbook/uses/#uses-go
-# https://docs.freebsd.org/en/books/porters-handbook/special/#using-go
 # Upate go depencencies
 make gomod-vendor > Makefile.deps.new
 # Copy changes, omitting changes on dexidp:dex (to be confiremd)
@@ -92,7 +94,7 @@ vimdiff Makefile.deps.new Makefile.deps
 make makesum
 ```
 
-#### rust-related changes
+#### Rust-related changes
 
 ```shell
 # Update cargo crates
@@ -117,7 +119,6 @@ doas poudriere testport -j 14-1-amd64 -p work -o security/rbw
 # If failing, it's possible to launch an interactive session
 doas poudriere testport -j 14-1-amd64 -p work -o security/rbw -i -v -v
 ```
-
 
 ### Once test are OK, publish changes back to the custom port overlay
 
