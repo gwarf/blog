@@ -74,6 +74,7 @@ make makesum
 #### Go-related changes
 
 Refer to:
+
 - https://github.com/freebsd/freebsd-ports/blob/main/Mk/Uses/go.mk
 - https://docs.freebsd.org/en/books/porters-handbook/uses/#uses-go
 - https://docs.freebsd.org/en/books/porters-handbook/special/#using-go
