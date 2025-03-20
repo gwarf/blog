@@ -5,84 +5,84 @@ defaultContentLanguage = "en"
 # theme = "m10c"
 theme = "hermit"
 # enableGitInfo = true
-pygmentsCodefences  = true
-pygmentsUseClasses  = true
+pygmentsCodefences = true
+pygmentsUseClasses = true
 # hasCJKLanguage = true  # If Chinese/Japanese/Korean is your main content language, enable this to make wordCount works right.
-rssLimit = 10  # Maximum number of items in the RSS feed.
+rssLimit = 10                                    # Maximum number of items in the RSS feed.
 copyright = "This work is licensed under WTFPL." # This message is only used by the RSS template.
-enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/functions/emojify/
+enableEmoji = true                               # Shorthand emojis in content files - https://gohugo.io/functions/emojify/
 # googleAnalytics = "UA-123-45"
 # disqusShortname = "yourdiscussshortname"
 
 [author]
-  name = "Baptiste Grenier"
+name = "Baptiste Grenier"
 
 [blackfriday]
-  # hrefTargetBlank = true
-  # noreferrerLinks = true
-  # nofollowLinks = true
+# hrefTargetBlank = true
+# noreferrerLinks = true
+# nofollowLinks = true
 
 [taxonomies]
-  tag = "tags"
-  # Categories are disabled by default.
+tag = "tags"
+# Categories are disabled by default.
 
 [params]
-  dateform        = "Jan 2, 2006"
-  dateformShort   = "Jan 2"
-  dateformNum     = "2006-01-02"
-  dateformNumTime = "2006-01-02 15:04 -0700"
+dateform = "Jan 2, 2006"
+dateformShort = "Jan 2"
+dateformNum = "2006-01-02"
+dateformNumTime = "2006-01-02 15:04 -0700"
 
-  # Metadata mostly used in document's head
-  # description = ""
-  # images = [""]
-  themeColor = "#494f5c"
+# Metadata mostly used in document's head
+# description = ""
+# images = [""]
+themeColor = "#494f5c"
 
-  homeSubtitle = "brain.dump(/dev/urandom + 'mostly technical bits.')"
-  footerCopyright = ' &#183; <a href="https://http://www.wtfpl.net/" target="_blank" rel="noopener">WTFPL</a>'
-  # bgImg = ""  # Homepage background-image URL
+homeSubtitle = "brain.dump(/dev/urandom + 'mostly technical bits.')"
+footerCopyright = ' &#183; <a href="https://http://www.wtfpl.net/" target="_blank" rel="noopener">WTFPL</a>'
+# bgImg = ""  # Homepage background-image URL
 
-  # Prefix of link to the git commit detail page. GitInfo must be enabled.
-  # gitUrl = "https://github.com/username/repository/commit/"
+# Prefix of link to the git commit detail page. GitInfo must be enabled.
+# gitUrl = "https://github.com/username/repository/commit/"
 
-  # Toggling this option needs to rebuild SCSS, requires Hugo extended version
-  justifyContent = false  # Set "text-align: justify" to `.content`.
+# Toggling this option needs to rebuild SCSS, requires Hugo extended version
+justifyContent = false # Set "text-align: justify" to `.content`.
 
-  relatedPosts = true  # Add a related content section to all single posts page
+relatedPosts = true # Add a related content section to all single posts page
 
-  code_copy_button = true # Turn on/off the code-copy-button for code-fields
-  
-  # Add custom css
-  # customCSS = ["css/foo.css", "css/bar.css"]
+code_copy_button = true # Turn on/off the code-copy-button for code-fields
 
-  # Social Icons
-  # Check https://github.com/Track3/hermit#social-icons for more info.
-  [[params.social]]
-    name = "github"
-    url = "https://github.com/gwarf"
+# Add custom css
+# customCSS = ["css/foo.css", "css/bar.css"]
 
-  [[params.social]]
-    name = "mastordon"
-    url = "https://framapiaf.org/@gwarf"
+# Social Icons
+# Check https://github.com/Track3/hermit#social-icons for more info.
+[[params.social]]
+name = "github"
+url = "https://github.com/gwarf"
 
-  [[params.social]]
-    name = "linkedin"
-    url = "https://linkedin.com/in/baptistegrenier"
+[[params.social]]
+name = "mastodon"
+url = "https://framapiaf.org/@gwarf"
 
-  [[params.social]]
-    name = "email"
-    url = "mailto:baptiste@bapt.name"
+[[params.social]]
+name = "linkedin"
+url = "https://linkedin.com/in/baptistegrenier"
+
+[[params.social]]
+name = "email"
+url = "mailto:baptiste@bapt.name"
 
 [permalinks]
-  posts = "/:year/:month/:day/:title/"
+posts = "/:year/:month/:day/:title/"
 
 [menu]
 
-  [[menu.main]]
-    name = "Posts"
-    url = "posts/"
-    weight = 10
+[[menu.main]]
+name = "Posts"
+url = "posts/"
+weight = 10
 
-  [[menu.main]]
-    name = "About"
-    url = "about/"
-    weight = 20
+[[menu.main]]
+name = "About"
+url = "about/"
+weight = 20
